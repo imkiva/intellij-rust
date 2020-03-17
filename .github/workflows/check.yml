@@ -34,6 +34,7 @@ jobs:
               run: |
                 curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain ${{ matrix.rust-version }} -y
                 export PATH=$HOME/.cargo/bin:$PATH
+                rustc --version
                 rustup component add rust-src
                 if [ "${{ matrix.rust-version }}" != "1.28.0" ]; then rustup component add clippy-preview; fi # BACKCOMPAT: Rust 1.28.0
                 rustup component add rustfmt-preview
